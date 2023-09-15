@@ -1,0 +1,17 @@
+{
+    "name": "szogyenyid/php-di-example",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Szogyenyid\\PhpDiExample\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "szogyenyid",
+            "email": "szogyenyid@pm.me"
+        }
+    ],
+    "require": {}
+}
