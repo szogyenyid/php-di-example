@@ -3,28 +3,27 @@
 namespace Szogyenyid\PhpDiExample;
 
 use InvalidArgumentException;
+use Szogyenyid\PhpDiExample\Classes\Echoer;
+use Szogyenyid\PhpDiExample\Interfaces\WriterInterface;
 
 include __DIR__ . '/../vendor/autoload.php';
 
 class App
 {
     public function __construct(
-        private string $function = 'echo',
+        private WriterInterface $writer,
         private string $greeting = 'Hello',
         private string $name = 'World'
     ) {
     }
     public function run()
     {
-        if ($this->function === 'echo') {
-            echo $this->greeting . ' ' . $this->name . '!' . PHP_EOL;
-        } else {
-            throw new InvalidArgumentException('Invalid function');
-        }
+        $this->writer->write("$this->greeting $this->name");
     }
 }
 
 $app = new App(
+    writer: (new Echoer()),
     name: "szogyenyid"
 );
 $app->run();
