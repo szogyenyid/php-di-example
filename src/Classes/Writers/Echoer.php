@@ -1,13 +1,13 @@
 <?php
 
-namespace Szogyenyid\PhpDiExample\Classes;
+namespace Szogyenyid\PhpDiExample\Classes\Writers;
 
 use Szogyenyid\PhpDiExample\Interfaces\WriterInterface;
 
-class Printer implements WriterInterface
+class Echoer implements WriterInterface
 {
     public function write(string $message): void
     {
-        printf("%s\n", $message);
+        echo $message . PHP_EOL;
     }
 }

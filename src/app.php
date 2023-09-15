@@ -2,8 +2,7 @@
 
 namespace Szogyenyid\PhpDiExample;
 
-use InvalidArgumentException;
-use Szogyenyid\PhpDiExample\Classes\Echoer;
+use Szogyenyid\PhpDiExample\Classes\Writers\Echoer;
 use Szogyenyid\PhpDiExample\Interfaces\WriterInterface;
 
 include __DIR__ . '/../vendor/autoload.php';
@@ -18,7 +17,7 @@ class App
     }
     public function run()
     {
-        $this->writer->write("$this->greeting $this->name");
+        $this->writer->write("$this->greeting $this->name!");
     }
 }
 
