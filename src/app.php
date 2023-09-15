@@ -2,27 +2,27 @@
 
 namespace Szogyenyid\PhpDiExample;
 
+use Szogyenyid\PhpDiExample\Classes\Greeters\Helloer;
 use Szogyenyid\PhpDiExample\Classes\Writers\Echoer;
-use Szogyenyid\PhpDiExample\Interfaces\WriterInterface;
+use Szogyenyid\PhpDiExample\Interfaces\GreeterInterface;
 
 include __DIR__ . '/../vendor/autoload.php';
 
 class App
 {
     public function __construct(
-        private WriterInterface $writer,
-        private string $greeting = 'Hello',
+        private GreeterInterface $greeter,
         private string $name = 'World'
     ) {
     }
     public function run()
     {
-        $this->writer->write("$this->greeting $this->name!");
+        $this->greeter->greet("$this->name");
     }
 }
 
 $app = new App(
-    writer: (new Echoer()),
+    greeter: (new Helloer((new Echoer()))),
     name: "szogyenyid"
 );
 $app->run();
