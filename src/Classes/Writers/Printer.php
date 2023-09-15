@@ -8,6 +8,6 @@ class Printer implements WriterInterface
 {
     public function write(string $message): void
     {
-        printf("%s\n", $message);
+        printf("Print: %s\n", $message);
     }
 }

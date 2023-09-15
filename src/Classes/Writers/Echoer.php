@@ -8,6 +8,6 @@ class Echoer implements WriterInterface
 {
     public function write(string $message): void
     {
-        echo $message . PHP_EOL;
+        echo "Echo: " . $message . PHP_EOL;
     }
 }
