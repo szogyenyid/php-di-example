@@ -7,12 +7,12 @@ use Szogyenyid\PhpDiExample\Interfaces\GreeterInterface;
 class App
 {
     public function __construct(
-        private GreeterInterface $greeter,
-        private string $name = 'World'
+        private GreeterInterface $greeter
     ) {
     }
-    public function run()
+
+    public function run(string $name)
     {
-        $this->greeter->greet("$this->name");
+        $this->greeter->greet("$name");
     }
 }
