@@ -11,10 +11,13 @@ use Szogyenyid\PhpDiExample\Interfaces\WriterInterface;
 
 include __DIR__ . '/../vendor/autoload.php';
 
-$container = new \DI\Container([
+$containerBuilder = new \DI\ContainerBuilder();
+$containerBuilder->useAttributes(true);
+$containerBuilder->addDefinitions([
     GreeterInterface::class => \DI\autowire(Helloer::class),
     WriterInterface::class => \DI\autowire(Printer::class),
 ]);
+$container = $containerBuilder->build();
 
 try {
     $app = $container->get(App::class);
